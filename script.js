@@ -3,6 +3,8 @@
     // Identify base container in variable
 
     let base = document.querySelector(".baseContainer");
+    let gridButton = document.querySelector(".newGrid");
+    gridButton.addEventListener("click", () => {newGrid(prompt("How many boxes per side?"))});
 
     drawGrid(16);
 
@@ -16,7 +18,16 @@
     
     // Create drawGrid function
 
+    function newGrid(dim) {
+        base.removeChild(document.querySelector(".grid"));
+        drawGrid(dim);
+    }
+
     function drawGrid(dim) {
+
+        let grid = document.createElement('div');
+        grid.classList.add("grid");
+        base.appendChild(grid);
         
          // Create for loop for 16 div rows
         
@@ -36,7 +47,7 @@
     
             // Append div to baseContainer
     
-            base.appendChild(newRow);
+            grid.appendChild(newRow);
     
             // Create for loop for 16 div columns in each row
     
