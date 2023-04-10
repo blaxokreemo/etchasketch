@@ -3,6 +3,9 @@
     // Identify base container in variable
 
     let base = document.querySelector(".baseContainer");
+
+    // BUTTONS
+
     let gridButton = document.querySelector(".newGrid");
     let resetButton = document.querySelector(".reset");
     let bigGrid = document.querySelector(".bigGrid");
@@ -13,13 +16,46 @@
     bigGrid.addEventListener("click", () => {currentSize = 960; newGrid(currentGrid)});
     medGrid.addEventListener("click", () => {currentSize = 680; newGrid(currentGrid)});
     smallGrid.addEventListener("click", () => {currentSize = 420; newGrid(currentGrid)});
+    
+    // STARTING GRID SIZE
+
     let currentGrid = 16;
-    let currentSize = 960;
+    let currentSize = 680;
 
     drawGrid(currentGrid);
 
+    // FUNCTIONS
+
+    // COLORING
+
     function hoverColor(e) {
-        e.target.style["background"] = "red";
+        if (e.target.getAttribute("data-lt") == "90") {
+            let hue = randHue();
+            let sat = randSat();
+            e.target.style["background"] = `hsl(${hue}, ${sat}%, 90%)`;
+            e.target.setAttribute("data-lt", "80");
+            e.target.setAttribute("data-hue", `${hue}`);
+            e.target.setAttribute("data-sat", `${sat}`);
+        } else if (e.target.getAttribute("data-lt") == "0") {
+            return;
+        } else {
+            let hue = e.target.getAttribute("data-hue");
+            let sat = e.target.getAttribute("data-sat");
+            let lightness = e.target.getAttribute("data-lt");
+            lightness = Number(lightness);
+            lightness = lightness - 10;
+            e.target.setAttribute("data-lt", `${lightness}`)
+
+            e.target.style["background"] = `hsl(${hue}, ${sat}%, ${lightness}%)`;
+        }
+    }
+
+    function randHue() {
+        return Math.floor(Math.random() * 360);
+    }
+
+    function randSat() {
+        return Math.floor(Math.random() * 100);
     }
     
     // Create drawGrid function
@@ -83,6 +119,12 @@
                 // Add unique grid ID
     
                 newCol.setAttribute("id", `${row}-${column}`);
+
+                // Create color attributes
+
+                newCol.setAttribute("data-lt", "90")
+                newCol.setAttribute("data-hue", "none")
+                newCol.setAttribute("data-sat", "none")
     
                 // Append div to row
     
