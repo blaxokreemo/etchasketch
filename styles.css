@@ -11,6 +11,7 @@
 
 .col {
     margin: 1px;
-    width: 10px;
-    border: solid black 4px;
+    width: 20px;
+    border: solid black 1px;
+    box-sizing: border-box;
 }
