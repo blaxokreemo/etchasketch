@@ -16,9 +16,9 @@
 
         newRow.classList.add("row");
 
-        // Add id of "r[row number]"
+        // Add class of "r[row number]"
 
-        newRow.setAttribute("id", `r${row}`);
+        newRow.classList.add(`r${row}`);
 
         // Append div to baseContainer
 
@@ -36,9 +36,13 @@
 
             newCol.classList.add("col");
 
-            // Add id of "c[column number]"
+            // Add class of "c[column number]"
 
-            newCol.setAttribute("id", `c${column}`);
+            newCol.classList.add(`c${column}`);
+
+            // Add unique grid ID
+
+            newCol.setAttribute("id", `${row}-${column}`);
 
             // Append div to row
 

@@ -1,0 +1,16 @@
+.baseContainer {
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    height: 20px;
+}
+
+.col {
+    margin: 1px;
+    width: 10px;
+    border: solid black 4px;
+}
