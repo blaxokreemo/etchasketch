@@ -4,9 +4,12 @@
 
     let base = document.querySelector(".baseContainer");
     let gridButton = document.querySelector(".newGrid");
+    let resetButton = document.querySelector(".reset");
+    resetButton.addEventListener("click", () => {newGrid(currentGrid)});
     gridButton.addEventListener("click", () => {newGrid(prompt("How many boxes per side?"))});
+    let currentGrid = 16;
 
-    drawGrid(16);
+    drawGrid(currentGrid);
 
     function hoverColor(e) {
         e.target.style["background"] = "red";
@@ -21,6 +24,7 @@
     function newGrid(dim) {
         base.removeChild(document.querySelector(".grid"));
         drawGrid(dim);
+        currentGrid = dim;
     }
 
     function drawGrid(dim) {
@@ -72,7 +76,7 @@
                 // Append div to row
     
                 newCol.addEventListener('mouseover', hoverColor);
-                newCol.addEventListener('mouseout', unHoverColor);
+                /* newCol.addEventListener('mouseout', unHoverColor);*/
     
                 newRow.appendChild(newCol);
     

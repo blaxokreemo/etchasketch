@@ -6,13 +6,29 @@
 .row {
     display: flex;
     justify-content: center;
-    margin: 2px;
-    height: 20px;
+    flex-basis: 100%;
 }
 
 .col {
-    margin: 1px;
     width: 20px;
     border: solid black 1px;
     box-sizing: border-box;
+    flex-basis: 100%;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    height: 960px;
+    width: 960px;
+    margin: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 10px 50px;
 }
