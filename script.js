@@ -11,9 +11,14 @@
     let bigGrid = document.querySelector(".bigGrid");
     let medGrid = document.querySelector(".medGrid");
     let smallGrid = document.querySelector(".smallGrid");
+
+    const buttons = Array.from(document.querySelectorAll(".btn"));
+    buttons.forEach(button => button.addEventListener("mouseover", btnOvr));
+    buttons.forEach(button => button.addEventListener("mouseout", btnOut));
+
     resetButton.addEventListener("click", () => {newGrid(currentGrid)});
     gridButton.addEventListener("click", () => {newGrid(prompt("How many boxes per side?"))});
-    bigGrid.addEventListener("click", () => {currentSize = 960; newGrid(currentGrid)});
+    bigGrid.addEventListener("click", () => {currentSize = 900; newGrid(currentGrid)});
     medGrid.addEventListener("click", () => {currentSize = 680; newGrid(currentGrid)});
     smallGrid.addEventListener("click", () => {currentSize = 420; newGrid(currentGrid)});
     
@@ -25,6 +30,16 @@
     drawGrid(currentGrid);
 
     // FUNCTIONS
+
+    // BUTTON-STYLE
+
+    function btnOvr(e) {
+        e.target.classList.add("btn-ovr");
+    }
+
+    function btnOut(e) {
+        e.target.classList.remove("btn-ovr");
+    }
 
     // COLORING
 
@@ -58,7 +73,7 @@
         return Math.floor(Math.random() * 100);
     }
     
-    // Create drawGrid function
+    // GRID
 
     function newGrid(dim) {
         base.removeChild(document.querySelector(".grid"));

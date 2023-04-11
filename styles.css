@@ -1,6 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+
 .baseContainer {
-    margin: auto;
+    margin-right: auto;
+    margin-left: 40px;
     text-align: center;
+    flex: auto;
 }
 
 .row {
@@ -11,7 +21,7 @@
 
 .col {
     width: 20px;
-    border: solid black 1px;
+    border: solid rgb(24, 83, 151) 1px;
     box-sizing: border-box;
     flex-basis: 100%;
 }
@@ -19,14 +29,40 @@
 .grid {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin-right: auto;
+    border: solid black 2px;
 }
 
 .controls {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    flex: auto;
+    border-right: solid black 3px;
+    align-items: end;
 }
 
 .btn {
-    margin: 10px 50px;
+    margin: 10px 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: white;
+    background: rgb(24, 83, 151);
+    border: solid rgb(67, 70, 75) 4px;
+    border-radius: 5px;
+    padding: 8px;
+    flex: none;
+    width: 300px;
+}
+
+.btn-ovr {
+    color: rgb(177, 185, 194);
+}
+
+.btn.size.btn-ovr {
+    color: rgb(97, 154, 219);
+}
+
+.btn.size {
+    background: rgb(236, 196, 83);
+    color:rgb(24, 83, 151);
 }
